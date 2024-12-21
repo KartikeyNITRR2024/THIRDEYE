@@ -15,8 +15,8 @@ import NotificationContext from "../../Context/Notification/NotificationContext"
 
 export default function LoginBox() {
   let [userDetails, setUserDetails] = useState({
-    email: "www.kartikaythawait007@gmail.com",
-    password: "system123#",
+    email: "",
+    password: "",
   });
   let loginContext = useContext(LoginContext);
   const notificationContext = useContext(NotificationContext);

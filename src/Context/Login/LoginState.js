@@ -44,8 +44,6 @@ export default function LoginState(props) {
       email: userDetails1.email,
       password: userDetails1.password,
     };
-    console.log(Microservices);
-    console.log("Environment Variables:", process.env);
     try {
       const response = await fetch(
         Microservices.THIRDEYEPURSE.URL +
