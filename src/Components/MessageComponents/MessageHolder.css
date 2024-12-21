@@ -1,0 +1,31 @@
+.message-holder {
+    display: flex;
+    flex-direction: column !important;
+    padding: 0px !important;
+    width: 97.5vw !important;
+    border: 0px !important;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    height: 42vh;
+}
+
+.message-row {
+    /* height: 100%;
+    width: 100%; */
+}
+
+@media (min-width: 768px) {
+    .message-holder {
+        flex-direction: row !important;
+    }
+    .message-box
+    {
+        height: 86.5vh;
+    }
+}

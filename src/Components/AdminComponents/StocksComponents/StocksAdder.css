@@ -1,0 +1,33 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #212529 !important;
+    color: white !important;
+  }
+
+  .uploadButton {
+    background-color: #646464 !important;
+    color:  #212529 !important;
+    outline: 0px solid #646464;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  input[type="file"] {
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="file"]:hover {
+    border-color: #0056b3;
+  }
+  
+  .alert {
+    border-radius: 5px;
+  }
+  

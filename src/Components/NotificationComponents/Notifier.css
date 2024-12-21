@@ -1,0 +1,38 @@
+.dark-modal .modal-content {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .dark-modal-header {
+    background-color: #343a40;
+    border-bottom: 1px solid #454d55;
+  }
+  
+  .dark-modal-body {
+    background-color: #343a40;
+  }
+  
+  .dark-modal-footer {
+    background-color: #343a40;
+    border-top: 1px solid #454d55;
+  }
+
+  .dark-modal-header.danger {
+    background-color: red;
+    color: white;
+  }
+  
+  .dark-modal-body.danger {
+    color: red;
+  }
+  
+  .dark-modal-header.success {
+    background-color: green;
+    color: white; 
+  }
+  
+  .dark-modal-body.success {
+    color: green;
+  }
+  
+  

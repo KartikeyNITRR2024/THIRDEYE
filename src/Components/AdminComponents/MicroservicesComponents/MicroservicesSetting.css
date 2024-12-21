@@ -1,0 +1,12 @@
+.responseBody
+{
+    background-color: black;
+    color: white;
+    height: 60vh;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    word-wrap: break-word;  
+    overflow-wrap: break-word;
+    word-break: break-all; 
+}

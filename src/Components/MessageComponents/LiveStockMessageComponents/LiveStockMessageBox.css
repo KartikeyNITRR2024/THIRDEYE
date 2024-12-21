@@ -1,0 +1,8 @@
+.message-group
+{
+   overflow-y: scroll;
+}
+.message-group::-webkit-scrollbar {
+   width: 2px;
+   background: rgb(33 37 41);
+ }

@@ -1,0 +1,26 @@
+.configvalues-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border: 2px solid white;
+    border-radius: 7px;
+  }
+  
+  .configvalues-column {
+    color: #ffffff;
+    padding: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+  }
+  
+  .configvalues-column:hover {
+    background-color: #495057; 
+  }
+
+  .configvalues-button
+  {
+    color: #ffffff;
+    background-color: #212529;
+    width: 50%;
+  }
+  

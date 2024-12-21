@@ -1,0 +1,48 @@
+.loginbigbox {
+    height: 89vh;
+    margin-top: 20px;
+}
+
+.card-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.button-group-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.dark-button-group {
+    width: 100%;
+}
+
+.dark-button-group .btn {
+    flex: 1;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+.dark-button-group .btn:hover,
+.dark-button-group .btn:focus,
+.dark-button-group .btn:active,
+.dark-button-group .btn.active {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.dark-input {
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #6c757d;
+}
+
+.dark-input::placeholder {
+    color: #bbb;
+}
+
+.thirdeyeimage {
+    width: 25%;
+}

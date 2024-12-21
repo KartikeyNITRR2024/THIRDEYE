@@ -1,0 +1,14 @@
+.market-holdedstock-container {
+    margin: 20px auto;
+}
+
+.market-holdedstock-row:first-child {
+    background-color: #212529;
+}
+
+.loading-message {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 20px;
+    color: gray;
+}
