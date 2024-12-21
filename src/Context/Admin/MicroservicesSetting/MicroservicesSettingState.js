@@ -52,6 +52,80 @@ export default function MicroservicesSettingState(props) {
     }
   };
 
+  const getAllMarketViewerStatus = async () => {
+    loaderContext.showLoader();
+    const token = JSON.parse(localStorage.getItem("userDetails"))?.token;
+    try {
+      const response = await fetch(
+        Microservices.THIRDEYEMACHINEHANDLER.URL +
+          `api/machine/fromfrontend/marketviewermachine/get/`+
+          Microservices.THIRDEYEMACHINEHANDLER.ID,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: token,
+          },
+        }
+      );
+      if (!response.ok) {
+        notificationContext.showNotificationFunc({
+          error: 1,
+          notification: "Failed to get all Market Viewer status.",
+        });
+        throw new Error("Failed to get all Market Viewer status.");
+      } else {
+        const data = await response.json();
+        setResponseBody(JSON.stringify(data));
+      }
+    } catch (error) {
+      notificationContext.showNotificationFunc({
+        error: 1,
+        notification: error.message,
+      });
+    } finally {
+      loaderContext.hideLoader();
+      notificationContext.hideLoaderfunc();
+    }
+  };
+
+  const getAllHoldedStockViewerStatus = async () => {
+    loaderContext.showLoader();
+    const token = JSON.parse(localStorage.getItem("userDetails"))?.token;
+    try {
+      const response = await fetch(
+        Microservices.THIRDEYEMACHINEHANDLER.URL +
+          `api/machine/fromfrontend/holdedstockviewermachine/get/`+
+          Microservices.THIRDEYEMACHINEHANDLER.ID,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: token,
+          },
+        }
+      );
+      if (!response.ok) {
+        notificationContext.showNotificationFunc({
+          error: 1,
+          notification: "Failed to get all Market Viewer status.",
+        });
+        throw new Error("Failed to get all Market Viewer status.");
+      } else {
+        const data = await response.json();
+        setResponseBody(JSON.stringify(data));
+      }
+    } catch (error) {
+      notificationContext.showNotificationFunc({
+        error: 1,
+        notification: error.message,
+      });
+    } finally {
+      loaderContext.hideLoader();
+      notificationContext.hideLoaderfunc();
+    }
+  };
+
   const restartAllMicroservices = async (type) => {
     loaderContext.showLoader();
     const token = JSON.parse(localStorage.getItem("userDetails"))?.token;
@@ -90,11 +164,85 @@ export default function MicroservicesSettingState(props) {
     }
   };
 
+  const updateAllHoldedStockViewerMachine = async (type) => {
+    loaderContext.showLoader();
+    const token = JSON.parse(localStorage.getItem("userDetails"))?.token;
+    try {
+      const response = await fetch(
+        Microservices.THIRDEYEMACHINEHANDLER.URL +
+          `api/machine/fromfrontend/holdedstockviewermachine/update/` +
+          Microservices.THIRDEYEMACHINEHANDLER.ID,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: token,
+          },
+        }
+      );
+      if (!response.ok) {
+        notificationContext.showNotificationFunc({
+          error: 1,
+          notification: "Failed to restart all market viewer machines.",
+        });
+        throw new Error("Failed to restart all market viewer machines.");
+      } else {
+        const data = await response.json();
+        setResponseBody(JSON.stringify(data));
+      }
+    } catch (error) {
+      notificationContext.showNotificationFunc({
+        error: 1,
+        notification: error.message,
+      });
+    } finally {
+      loaderContext.hideLoader();
+      notificationContext.hideLoaderfunc();
+    }
+  };
+
+  const updateAllMarketViewerMachine = async (type) => {
+    loaderContext.showLoader();
+    const token = JSON.parse(localStorage.getItem("userDetails"))?.token;
+    try {
+      const response = await fetch(
+        Microservices.THIRDEYEMACHINEHANDLER.URL +
+          `api/machine/fromfrontend/marketviewermachine/update/` +
+          Microservices.THIRDEYEMACHINEHANDLER.ID,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: token,
+          },
+        }
+      );
+      if (!response.ok) {
+        notificationContext.showNotificationFunc({
+          error: 1,
+          notification: "Failed to restart all holded stock machines.",
+        });
+        throw new Error("Failed to restart all holded stock machines.");
+      } else {
+        const data = await response.json();
+        setResponseBody(JSON.stringify(data));
+      }
+    } catch (error) {
+      notificationContext.showNotificationFunc({
+        error: 1,
+        notification: error.message,
+      });
+    } finally {
+      loaderContext.hideLoader();
+      notificationContext.hideLoaderfunc();
+    }
+  };
+
 
   return (
     <MicroservicesSettingContext.Provider
       value={{
-        getAllMicroservicesStatus, responseBody, clearAllData, restartAllMicroservices
+        getAllMicroservicesStatus, responseBody, clearAllData, restartAllMicroservices, getAllMarketViewerStatus, getAllHoldedStockViewerStatus, updateAllMarketViewerMachine, updateAllHoldedStockViewerMachine
       }}
     >
       {props.children}

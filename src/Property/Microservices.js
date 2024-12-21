@@ -37,6 +37,12 @@ const Microservices = {
             : process.env.REACT_APP_THIRDEYEMORNINGPRICEUPDATER_URL_LOCAL,
         "ID": process.env.REACT_APP_THIRDEYEMORNINGPRICEUPDATER_KEY,
     },
+    "THIRDEYEMACHINEHANDLER": {
+        "URL": isLive 
+            ? process.env.REACT_APP_THIRDEYEMACHINEHANDLER_URL 
+            : process.env.REACT_APP_THIRDEYEMACHINEHANDLER_URL_LOCAL,
+        "ID": process.env.REACT_APP_THIRDEYEMACHINEHANDLER_KEY,
+    },
 };
 
 export default Microservices;
