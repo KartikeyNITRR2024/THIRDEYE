@@ -34,7 +34,6 @@ export default function HoldedStockDiv({ data }) {
       userId: 0,
     };
 
-    console.log(stockDetails);
 
     if(stockDetails.sellingPriceOfSingleStoke === null || stockDetails.sellingPriceOfSingleStoke <= 0
       || stockDetails.sellingTotalPrice === null || stockDetails.sellingTotalPrice < (sellingPriceOfSingleStoke * data.noOfStock)

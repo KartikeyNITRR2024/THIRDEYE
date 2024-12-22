@@ -26,8 +26,6 @@ export default function ConfigValues({ propertyKey = "", propertyValue = "" }) {
   };
 
   const handlePasswordSubmit = (password) => {
-    console.log("Updated value:", currentValue);
-    console.log("Property Key:", propertyKey);
     const payload = {
       password: password,
       [propertyKey]: currentValue,

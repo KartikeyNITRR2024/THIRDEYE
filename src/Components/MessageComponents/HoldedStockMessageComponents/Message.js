@@ -3,7 +3,6 @@ import DOMPurify from 'dompurify';
 import "./Message.css"
 
 export default function Message({ messageObject }) {
-  console.log(messageObject);
   const formattedMessage = DOMPurify.sanitize(messageObject.messageText.replace(/\n/g, "<br />"));
   return (
     <div className="message-bubble">

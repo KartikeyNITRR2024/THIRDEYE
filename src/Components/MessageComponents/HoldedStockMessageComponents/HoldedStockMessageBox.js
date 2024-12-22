@@ -11,7 +11,6 @@ export default function HoldedStockMessageBox() {
     if (messageEndRef.current) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    console.log(holdedStockViewerContext.messages);
   }, [holdedStockViewerContext.messages]);
 
   return (

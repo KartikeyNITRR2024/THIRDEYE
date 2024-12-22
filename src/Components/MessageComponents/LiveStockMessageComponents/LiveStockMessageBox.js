@@ -11,7 +11,6 @@ export default function LiveStockMessageBox() {
     if (messageEndRef.current) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    console.log(marketViewerContext.messages);
   }, [marketViewerContext.messages]);
 
   return (
