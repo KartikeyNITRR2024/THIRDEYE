@@ -19,12 +19,16 @@ import reloadlogo from "../../images/reload.png";
 import "./Navigationbar.css";
 import LoginContext from "../../Context/Login/LoginContext";
 import SettingsContext from "../../Context/Settings/SettingsContext";
+import MarketViewerContext from "../../Context/Message/MarketViewer/MarketViewerContext";
+import HoldedStockViewerContext from "../../Context/Message/HoldedStockViewer/HoldedStockViewerContext";
 import MorningPriceUpdateOffCanvas from "../MessageComponents/MorningPriceUpdateComponents/MorningPriceUpdateOffcanvas";
 
 export default function Navigationbar() {
   const [isOpen, setIsOpen] = useState(false);
   const loginContext = useContext(LoginContext);
   const settingsContext = useContext(SettingsContext);
+  const marketViewerContext = useContext(MarketViewerContext);
+  const holdedStockViewerContext = useContext(HoldedStockViewerContext);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -35,6 +39,14 @@ export default function Navigationbar() {
   const logoutButton = () => {
     loginContext.logout();
   };
+
+  const reconnectWebsocket = () => {
+    const userId = JSON.parse(localStorage.getItem("userDetails"))?.userId;
+    marketViewerContext.closeMarketViewerConnection();
+    holdedStockViewerContext.closeHoldedStockViewerConnection();
+    marketViewerContext.createMarketViewerConnection(userId);
+    holdedStockViewerContext.createHoldedStockViewerConnection(userId);
+  }
 
   return (
     <div>
@@ -96,6 +108,7 @@ export default function Navigationbar() {
                       className="reloadlogo"
                       alt="Reload Updates"
                       src={reloadlogo}
+                      onClick={reconnectWebsocket}
                     />
                   </NavbarBrand>
                 </>

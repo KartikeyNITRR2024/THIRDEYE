@@ -8,16 +8,16 @@
 
 .message-box {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     box-sizing: border-box;
     flex-direction: column;
     height: 42vh;
 }
 
 .message-row {
-    /* height: 100%;
-    width: 100%; */
+    height: 100%;
+    width: 100%;
 }
 
 @media (min-width: 768px) {

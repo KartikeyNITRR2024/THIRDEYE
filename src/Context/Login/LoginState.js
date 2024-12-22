@@ -9,7 +9,9 @@ import MicroservicesSettingContext from "../Admin/MicroservicesSetting/Microserv
 import SettingsContext from "../Settings/SettingsContext";
 import MorningPriceUpdaterContext from "../Message/MorningPriceUpdater/MorningPriceUpdaterContext";
 import LoaderContext from "../Loader/LoaderContext";
+import MarketViewerContext from "../Message/MarketViewer/MarketViewerContext";
 import Microservices from "../../Property/Microservices";
+import HoldedStockViewerContext from "../Message/HoldedStockViewer/HoldedStockViewerContext";
 
 export default function LoginState(props) {
   const [userDetails, setUserDetails] = useState({
@@ -39,6 +41,9 @@ export default function LoginState(props) {
   const microservicesSettingContext = useContext(MicroservicesSettingContext);
   const configSettingContext = useContext(ConfigSettingContext);
   const morningPriceUpdaterContext = useContext(MorningPriceUpdaterContext);
+  const marketViewerContext = useContext(MarketViewerContext);
+  const holdedStockViewerContext = useContext(HoldedStockViewerContext);
+  
 
   const loginFunction = async (userDetails1) => {
     loaderContext.showLoader();
@@ -121,6 +126,8 @@ export default function LoginState(props) {
       localStorage.setItem("userDetails", JSON.stringify(userDetails));
       stocksContext.getStocksList();
       holdedStockContext.getAllBuyedStock();
+      marketViewerContext.createMarketViewerConnection(userDetails.userId);
+      holdedStockViewerContext.createHoldedStockViewerConnection(userDetails.userId);
     } else {
       loaderContext.showLoader();
       localStorage.removeItem("userDetails");
@@ -132,6 +139,8 @@ export default function LoginState(props) {
       settingsContext.cleanAllData();
       microservicesSettingContext.clearAllData();
       configSettingContext.clearAllData();
+      marketViewerContext.closeMarketViewerConnection();
+      holdedStockViewerContext.closeHoldedStockViewerConnection();
       loaderContext.hideLoader();
     }
   }, [userDetails.isLogin]);
