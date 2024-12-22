@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Offcanvas, OffcanvasHeader, OffcanvasBody } from "reactstrap";
 import sunlogo from "../../../images/sun.png";
 import "./MorningPriceUpdateOffCanvas.css"
 import MorningPriceTableComponent from "./MorningPriceTableComponent";
+import MorningPriceUpdaterContext from "../../../Context/Message/MorningPriceUpdater/MorningPriceUpdaterContext"
 
 export default function MorningPriceUpdateOffCanvas() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +11,10 @@ export default function MorningPriceUpdateOffCanvas() {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  // Function to get India's current date and time
+  const morningPriceUpdaterContext = useContext(MorningPriceUpdaterContext);
+
   const getIndiaDateTime = () => {
-    const indiaTimeZone = "Asia/Kolkata"; // IST (Indian Standard Time)
+    const indiaTimeZone = "Asia/Kolkata";
     const options = {
       weekday: "long",
       year: "numeric",
@@ -32,12 +34,22 @@ export default function MorningPriceUpdateOffCanvas() {
     setCurrentDateTime(indiaTime);
   };
 
-  // Update the current date and time every second
   useEffect(() => {
     getIndiaDateTime();
-    const interval = setInterval(getIndiaDateTime, 1000); // Update every second
-    return () => clearInterval(interval); // Cleanup the interval on unmount
+    const interval = setInterval(getIndiaDateTime, 1000);
+    return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+     if(isOpen)
+     {
+        morningPriceUpdaterContext.getStocksList();
+     }
+     else
+     {
+        morningPriceUpdaterContext.clearStockList();
+     }
+  }, [isOpen]);
 
   return (
     <>

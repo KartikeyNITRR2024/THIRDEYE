@@ -13,6 +13,7 @@ import LoaderState from "./Context/Loader/LoaderState";
 import MicroservicesSettingState from "./Context/Admin/MicroservicesSetting/MicroservicesSettingState";
 import ConfigSettingState from "./Context/Admin/ConfigSetting/ConfigSettingState";
 import UserSettingState from "./Context/Admin/UserSetting/UserSettingState";
+import MorningPriceUpdaterState from "./Context/Message/MorningPriceUpdater/MorningPriceUpdaterState";
 
 function App() {
   let loginContext = useContext(LoginContext);
@@ -38,29 +39,31 @@ function App() {
   );
 }
 
-export default function  AppWrapper() {
+export default function AppWrapper() {
   return (
     <LoaderState>
       <NotificationState>
-        <MarketThresoldState>
-          <UserSettingState>
-            <ConfigSettingState>
-              <MicroservicesSettingState>
-                <StocksState>
-                  <HoldedStockState>
-                    <SettingsState>
-                      <LoginState>
-                        <BrowserRouter>
-                          <App />
-                        </BrowserRouter>
-                      </LoginState>
-                    </SettingsState>
-                  </HoldedStockState>
-                </StocksState>
-              </MicroservicesSettingState>
-            </ConfigSettingState>
-          </UserSettingState>
-        </MarketThresoldState>
+        <MorningPriceUpdaterState>
+          <MarketThresoldState>
+            <UserSettingState>
+              <ConfigSettingState>
+                <MicroservicesSettingState>
+                  <StocksState>
+                    <HoldedStockState>
+                      <SettingsState>
+                        <LoginState>
+                          <BrowserRouter>
+                            <App />
+                          </BrowserRouter>
+                        </LoginState>
+                      </SettingsState>
+                    </HoldedStockState>
+                  </StocksState>
+                </MicroservicesSettingState>
+              </ConfigSettingState>
+            </UserSettingState>
+          </MarketThresoldState>
+        </MorningPriceUpdaterState>
       </NotificationState>
     </LoaderState>
   );

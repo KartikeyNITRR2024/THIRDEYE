@@ -7,6 +7,7 @@ import MarketThresoldContext from "../MarketThresold/MarketThresoldContext";
 import ConfigSettingContext from "../Admin/ConfigSetting/ConfigSettingContext";
 import MicroservicesSettingContext from "../Admin/MicroservicesSetting/MicroservicesSettingContext";
 import SettingsContext from "../Settings/SettingsContext";
+import MorningPriceUpdaterContext from "../Message/MorningPriceUpdater/MorningPriceUpdaterContext";
 import LoaderContext from "../Loader/LoaderContext";
 import Microservices from "../../Property/Microservices";
 
@@ -37,6 +38,7 @@ export default function LoginState(props) {
   const loaderContext = useContext(LoaderContext);
   const microservicesSettingContext = useContext(MicroservicesSettingContext);
   const configSettingContext = useContext(ConfigSettingContext);
+  const morningPriceUpdaterContext = useContext(MorningPriceUpdaterContext);
 
   const loginFunction = async (userDetails1) => {
     loaderContext.showLoader();
@@ -109,6 +111,7 @@ export default function LoginState(props) {
     settingsContext.cleanAllData();
     microservicesSettingContext.clearAllData();
     configSettingContext.clearAllData();
+    morningPriceUpdaterContext.clearStockList();
     loaderContext.hideLoader();
     window.location.href = "/";
   };
