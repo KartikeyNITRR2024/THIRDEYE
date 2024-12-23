@@ -1,10 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Row, Col, Container, Button } from "reactstrap";
 import "./MicroservicesSetting.css";
 import MicroservicesSettingContext from "../../../Context/Admin/MicroservicesSetting/MicroservicesSettingContext";
 
 export default function MicroservicesSetting() {
   const microservicesSettingContext = useContext(MicroservicesSettingContext);
+  const [formattedResponse, setFormattedResponse] = useState("");
+
+  useEffect(() => {
+    if (microservicesSettingContext.responseBody) {
+      const data = microservicesSettingContext.responseBody;
+      setFormattedResponse(data);
+    }
+  }, [microservicesSettingContext.responseBody]);
 
   const checkstatus = () => {
     microservicesSettingContext.clearAllData();
@@ -41,59 +49,73 @@ export default function MicroservicesSetting() {
     microservicesSettingContext.getAllHoldedStockViewerStatus();
   };
 
+  const deleteOldMessage = () => {
+    microservicesSettingContext.clearAllData();
+    microservicesSettingContext.deleteAllOldMessages();
+  };
+
   return (
     <>
       <Container>
-        <Row xs="1">
-          <Col xs="4">
-            <Button className="m-2" color="primary" onClick={checkstatus}>
-              Status
+        <Row xs="1" sm="2" md="4">
+          <Col>
+            <Button className="m-2 microserivcesButton" color="primary" onClick={checkstatus}>
+              Microservices Status
             </Button>
           </Col>
-          <Col xs="4">
+          <Col>
             <Button
-              className="m-2"
+              className="m-2 microserivcesButton"
               color="primary"
               onClick={restartmicroservices0}
             >
-              Restart0
+              Restart Microservices 0
             </Button>
           </Col>
-          <Col xs="4">
+          <Col>
             <Button
-              className="m-2"
+              className="m-2 microserivcesButton"
               color="primary"
               onClick={restartmicroservices1}
             >
-              Restart1
+              Restart Microservices 1
             </Button>
           </Col>
-          <Col  xs="8">
+          <Col>
             <Button
-              className="m-2"
+              className="m-2 microserivcesButton"
+              color="primary"
+              onClick={deleteOldMessage}
+            >
+              Delete Old Message
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              className="m-2 microserivcesButton"
               color="primary"
               onClick={updateMarketViewer}
             >
               Update Market Viewer
             </Button>
           </Col>
-          <Col  xs="8">
-            <Button className="m-2" color="primary" onClick={getMarketViewer}>
+          <Col>
+            <Button className="m-2 microserivcesButton" color="primary" onClick={getMarketViewer}>
               Get Market Viewer
             </Button>
           </Col>
-          <Col  xs="8">
+          <Col>
             <Button
-              className="m-2"
+              className="m-2 microserivcesButton"
               color="primary"
               onClick={updateHoldedStockViewer}
             >
               Update Holded Stock Viewer
             </Button>
           </Col>
-          <Col  xs="8">
+          <Col>
             <Button
-              className="m-2"
+              className="m-2 microserivcesButton"
               color="primary"
               onClick={getHoldedStockViewer}
             >
@@ -103,7 +125,7 @@ export default function MicroservicesSetting() {
         </Row>
         <Row xs="1">
           <Col className="responseBody">
-            {microservicesSettingContext.responseBody}
+            <div dangerouslySetInnerHTML={{ __html: formattedResponse }} />
           </Col>
         </Row>
       </Container>

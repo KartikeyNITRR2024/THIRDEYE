@@ -34,6 +34,7 @@ export default function Navigationbar() {
 
   const handleNavLinkClick = (linkNumber) => {
     settingsContext.changeSetting(linkNumber);
+    setIsOpen(false);
   };
 
   const logoutButton = () => {
@@ -46,6 +47,7 @@ export default function Navigationbar() {
     holdedStockViewerContext.closeHoldedStockViewerConnection();
     marketViewerContext.createMarketViewerConnection(userId);
     holdedStockViewerContext.createHoldedStockViewerConnection(userId);
+    setIsOpen(false);
   }
 
   return (
