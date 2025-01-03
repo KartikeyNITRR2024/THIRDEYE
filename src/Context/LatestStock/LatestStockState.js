@@ -13,7 +13,6 @@ export default function LatestStockState(props) {
   const notificationContext = useContext(NotificationContext);
 
   const getAllLatestStock = async () => {
-    console.log(Microservices);
     loaderContext.showLoader();
     const token = JSON.parse(localStorage.getItem("userDetails"))?.token;
     try {
