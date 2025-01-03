@@ -9,10 +9,10 @@ export default function AdminSetting() {
   const settingsContext = useContext(SettingsContext);
   return (
     <>
-      {settingsContext.currentSetting === 3 && <MicroservicesSetting />}
-      {settingsContext.currentSetting === 4 && <UserSetting />}
-      {settingsContext.currentSetting === 5 && <ConfigSetting />}
-      {settingsContext.currentSetting === 6 && <StocksSetting />}
+      {settingsContext.currentSetting === 4 && <MicroservicesSetting />}
+      {settingsContext.currentSetting === 5 && <UserSetting />}
+      {settingsContext.currentSetting === 6 && <ConfigSetting />}
+      {settingsContext.currentSetting === 7 && <StocksSetting />}
     </>
   );
 }
