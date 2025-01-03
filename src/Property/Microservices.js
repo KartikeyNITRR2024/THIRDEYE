@@ -43,6 +43,12 @@ const Microservices = {
             : process.env.REACT_APP_THIRDEYEMACHINEHANDLER_URL_LOCAL,
         "ID": process.env.REACT_APP_THIRDEYEMACHINEHANDLER_KEY,
     },
+    "THIRDEYEPROCESSER": {
+        "URL": isLive 
+            ? process.env.REACT_APP_THIRDEYEPROCESSER_URL 
+            : process.env.REACT_APP_THIRDEYEPROCESSER_URL_LOCAL,
+        "ID": process.env.REACT_APP_THIRDEYEPROCESSER_KEY,
+    },
 };
 
 export default Microservices;

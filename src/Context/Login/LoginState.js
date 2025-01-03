@@ -12,6 +12,7 @@ import LoaderContext from "../Loader/LoaderContext";
 import MarketViewerContext from "../Message/MarketViewer/MarketViewerContext";
 import Microservices from "../../Property/Microservices";
 import HoldedStockViewerContext from "../Message/HoldedStockViewer/HoldedStockViewerContext";
+import LatestStockContext from "../LatestStock/LatestStockContext";
 
 export default function LoginState(props) {
   const [userDetails, setUserDetails] = useState({
@@ -43,6 +44,8 @@ export default function LoginState(props) {
   const morningPriceUpdaterContext = useContext(MorningPriceUpdaterContext);
   const marketViewerContext = useContext(MarketViewerContext);
   const holdedStockViewerContext = useContext(HoldedStockViewerContext);
+  const latestStockContext = useContext(LatestStockContext);
+  
   
 
   const loginFunction = async (userDetails1) => {
@@ -117,6 +120,7 @@ export default function LoginState(props) {
     microservicesSettingContext.clearAllData();
     configSettingContext.clearAllData();
     morningPriceUpdaterContext.clearStockList();
+    latestStockContext.closeLatestStockConnection();
     loaderContext.hideLoader();
     window.location.href = "/";
   };
@@ -141,6 +145,7 @@ export default function LoginState(props) {
       configSettingContext.clearAllData();
       marketViewerContext.closeMarketViewerConnection();
       holdedStockViewerContext.closeHoldedStockViewerConnection();
+      latestStockContext.closeLatestStockConnection();
       loaderContext.hideLoader();
     }
   }, [userDetails.isLogin]);

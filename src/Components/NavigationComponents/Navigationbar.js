@@ -68,11 +68,16 @@ export default function Navigationbar() {
                 </NavItem>
                 <NavItem>
                   <NavLink onClick={() => handleNavLinkClick(1)}>
-                    Holded Stock Settings
+                    Latest Stock
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink onClick={() => handleNavLinkClick(2)}>
+                    Holded Stock Settings
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink onClick={() => handleNavLinkClick(3)}>
                     Live Market Settings
                   </NavLink>
                 </NavItem>
@@ -83,16 +88,16 @@ export default function Navigationbar() {
                         Admin Settings
                       </DropdownToggle>
                       <DropdownMenu end>
-                        <DropdownItem onClick={() => handleNavLinkClick(3)}>
+                        <DropdownItem onClick={() => handleNavLinkClick(4)}>
                           Microservices
                         </DropdownItem>
-                        <DropdownItem onClick={() => handleNavLinkClick(4)}>
+                        <DropdownItem onClick={() => handleNavLinkClick(5)}>
                           Users
                         </DropdownItem>
-                        <DropdownItem onClick={() => handleNavLinkClick(5)}>
+                        <DropdownItem onClick={() => handleNavLinkClick(6)}>
                           Config
                         </DropdownItem>
-                        <DropdownItem onClick={() => handleNavLinkClick(6)}>
+                        <DropdownItem onClick={() => handleNavLinkClick(7)}>
                           Stocks
                         </DropdownItem>
                       </DropdownMenu>

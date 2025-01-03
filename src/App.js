@@ -16,6 +16,7 @@ import UserSettingState from "./Context/Admin/UserSetting/UserSettingState";
 import MorningPriceUpdaterState from "./Context/Message/MorningPriceUpdater/MorningPriceUpdaterState";
 import MarketViewerState from "./Context/Message/MarketViewer/MarketViewerState";
 import HoldedStockViewerState from "./Context/Message/HoldedStockViewer/HoldedStockViewerState";
+import LatestStockState from "./Context/LatestStock/LatestStockState";
 
 function App() {
   let loginContext = useContext(LoginContext);
@@ -45,31 +46,33 @@ export default function AppWrapper() {
   return (
     <LoaderState>
       <NotificationState>
-        <HoldedStockViewerState>
-          <MarketViewerState>
-            <MorningPriceUpdaterState>
-              <MarketThresoldState>
-                <UserSettingState>
-                  <ConfigSettingState>
-                    <MicroservicesSettingState>
-                      <StocksState>
-                        <HoldedStockState>
-                          <SettingsState>
-                            <LoginState>
-                              <BrowserRouter>
-                                <App />
-                              </BrowserRouter>
-                            </LoginState>
-                          </SettingsState>
-                        </HoldedStockState>
-                      </StocksState>
-                    </MicroservicesSettingState>
-                  </ConfigSettingState>
-                </UserSettingState>
-              </MarketThresoldState>
-            </MorningPriceUpdaterState>
-          </MarketViewerState>
-        </HoldedStockViewerState>
+        <LatestStockState>
+          <HoldedStockViewerState>
+            <MarketViewerState>
+              <MorningPriceUpdaterState>
+                <MarketThresoldState>
+                  <UserSettingState>
+                    <ConfigSettingState>
+                      <MicroservicesSettingState>
+                        <StocksState>
+                          <HoldedStockState>
+                            <SettingsState>
+                              <LoginState>
+                                <BrowserRouter>
+                                  <App />
+                                </BrowserRouter>
+                              </LoginState>
+                            </SettingsState>
+                          </HoldedStockState>
+                        </StocksState>
+                      </MicroservicesSettingState>
+                    </ConfigSettingState>
+                  </UserSettingState>
+                </MarketThresoldState>
+              </MorningPriceUpdaterState>
+            </MarketViewerState>
+          </HoldedStockViewerState>
+        </LatestStockState>
       </NotificationState>
     </LoaderState>
   );
