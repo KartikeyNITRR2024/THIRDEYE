@@ -35,6 +35,7 @@ export default function LatestStockState(props) {
       }
       const data = await response.json();
       if (data) {
+        console.log(data);
         setLatestStocks(data);
       } else {
         notificationContext.showNotificationFunc({
@@ -69,6 +70,7 @@ export default function LatestStockState(props) {
           console.log("connected");
           client.subscribe(`/lateststock`, (data) => {
             data = JSON.parse(new TextDecoder().decode(data._binaryBody));
+            console.log(data);
             setLatestStocks(data);
           });
         });

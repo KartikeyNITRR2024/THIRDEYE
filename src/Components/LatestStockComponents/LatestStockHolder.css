@@ -1,12 +1,15 @@
-.leftButton
-{
+.leftButton {
     background-color: #212529;
     color: white;
 }
 
-.rightButton
-{
+.rightButton {
     border: solid white 1px;
     color: white;
     background-color: transparent;
+}
+
+.icon {
+    width: 16px !important;
+    height: 16px;
 }
